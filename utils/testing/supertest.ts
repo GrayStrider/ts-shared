@@ -1,7 +1,7 @@
 import st, {SuperTest, Test} from 'supertest'
 import Application from 'koa'
 import {ASTNode, print} from 'graphql'
-import {flattenGQLResponse} from '../'
+import { flattenGQLResponse } from '../..'
 
 function supertest (app: Application, gqlEndpoint: string) {
 
