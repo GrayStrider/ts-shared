@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import * as rx from 'rxjs'
 import * as o from 'rxjs/operators'
 import * as l from 'lodash'
-import {Promise as bb} from 'bluebird'
+import { Promise as bb } from 'bluebird'
 import gql from 'graphql-tag'
 import log from './utils/log'
 import flattenGQLResponse from './utils/flattenGQLResponse'
@@ -32,10 +32,19 @@ const chance = new Chance()
 export * from './utils/testing/supertest'
 
 export {
-	RA, R, rx, o, l,
-	signale, log, bb,
+	RA,
+	R,
+	rx,
+	o,
+	l,
+	signale,
+	log,
+	bb,
 	flattenGQLResponse,
-	warn, sleep,
+	warn,
+	sleep,
 	consoleWrite,
-	gql, axios, chance
+	gql,
+	axios,
+	chance,
 }

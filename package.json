@@ -52,6 +52,8 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "tsconfig-paths": "^3.9.0",
     "tsdef": "^0.0.13",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   }
 }
