@@ -13,7 +13,7 @@ module.exports = ({compilerOptions: {paths}}, {name}) => ({
 	globals: {
 		'ts-jest': {
 			diagnostics: false,
-			tsConfig: "packages/server/tsconfig.json"
+			tsConfig: "../utils-ts/tsconfig.base.json"
 		}
 	},
 	moduleNameMapper: paths && pathsToModuleNameMapper(
