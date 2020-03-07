@@ -9,7 +9,6 @@ module.exports = ({compilerOptions: {paths}}, {name}) => ({
 	},
 	bail: true, // when running per-project
 	errorOnDeprecated: true,
-	notify: true, // ??
 	globals: {
 		'ts-jest': {
 			diagnostics: false,
