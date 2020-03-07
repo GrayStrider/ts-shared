@@ -1,5 +1,5 @@
-import {keys, head, values} from 'ramda'
-import {GraphQLResponse} from 'graphql-request/dist/src/types'
+import { keys, head, values } from 'ramda'
+import { GraphQLResponse } from 'graphql-request/dist/src/types'
 
 /**
  * Refactored to be only used in GraphQL responses
@@ -12,23 +12,21 @@ import {GraphQLResponse} from 'graphql-request/dist/src/types'
  * Too much trouble handling these edge cases
  * @param response
  */
-export default function flattenGQLResponse<T extends unknown> (response: GraphQLResponse): T {
-	
+export default function flattenGQLResponse<T extends unknown>(
+	response: GraphQLResponse
+): T {
 	if (response.errors && response.errors.length > 0)
 		throw new Error(response.errors[0].message)
-	
-	
-	const {data} = response
-	
+
+	const { data } = response
+
 	if (!data) return response as T
 	if (keys(data).length > 1) return data as T
-	
+
 	/**
 	 * Return the first (head)
 	 * value (values) of the response
 	 * same as Object.values(response)[0]
 	 */
 	return head(values(data)) as T
-	
 }
-
