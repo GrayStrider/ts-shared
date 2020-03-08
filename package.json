@@ -14,7 +14,6 @@
     "cross-env": "^6.0.3",
     "fluture": "^12.2.0",
     "fluture-sanctuary-types": "^5.0.0",
-    "fluture-axios": "^0.1.1",
     "fp-ts": "^2.5.3",
     "fp-ts-fluture": "^0.6.5",
     "fp-ts-ramda": "^0.1.7",
