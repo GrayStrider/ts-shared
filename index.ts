@@ -7,6 +7,9 @@ import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 
+import axios from 'axios'
+import * as S from 'sanctuary'
+
 sig.config({
 	displayScope: true,
 	displayBadge: false,
