@@ -24,7 +24,7 @@ sig.config({
 const chance = new Chance()
 
 // isStrictEqual
-function isSE (act: unknown = true, exp: unknown = false) {
+function isSE (act?: unknown, exp?: unknown) {
 	return expect
 	(act).toStrictEqual (exp)
 }
