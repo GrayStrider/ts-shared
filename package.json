@@ -16,6 +16,7 @@
     "fluture-sanctuary-types": "^5.0.0",
     "fp-ts": "^2.5.3",
     "fp-ts-contrib": "^0.1.14",
+    "io-ts-reporters": "^1.0.0",
     "fp-ts-fluture": "^0.6.5",
     "fp-ts-ramda": "^0.1.7",
     "fp-ts-rxjs": "^0.6.8",
@@ -39,7 +40,6 @@
     "uuid": "^3.4.0",
     "xmlhttprequest-ts": "^1.0.1",
     "xstate": "^4.8.0",
-
     "graphql-request": "^1.8.2",
     "graphql": "^14.6.0"
   },
