@@ -7,9 +7,6 @@ import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 
-import axios from 'axios'
-import * as S from 'sanctuary'
-
 sig.config({
 	displayScope: true,
 	displayBadge: false,
@@ -26,6 +23,13 @@ sig.config({
 
 const chance = new Chance()
 
+// isStrictEqual
+function isSE (act: unknown = true, exp: unknown = false) {
+	return expect
+	(act).toStrictEqual (exp)
+}
+
+
 export * from './utils/testing/supertest'
 export {
 	sig,
@@ -35,4 +39,5 @@ export {
 	warn,
 	consoleWrite,
 	chance,
+	isSE
 }
