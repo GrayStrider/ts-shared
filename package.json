@@ -35,6 +35,7 @@
     "signale": "^1.4.0",
     "sleep-promise": "^8.0.1",
     "ts-mixer": "^5.0.0",
+    "ts-union": "^2.1.1",
     "uuid": "^3.4.0",
     "xmlhttprequest-ts": "^1.0.1",
     "xstate": "^4.8.0",
