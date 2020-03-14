@@ -1,5 +1,5 @@
 {
-  "*.{ts,js,tsx,jsx}": [
-    "yarn eslint"
+  "*.ts": [
+    "yarn lint:staged"
   ]
 }
