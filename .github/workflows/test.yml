@@ -27,8 +27,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: install
-        run: echo "checkout dependent package and test?.."
 
         env:
           CI: true
+
+#      - name: Coveralls GitHub Action
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          path-to-lcov: test/coverage/lcov.info
