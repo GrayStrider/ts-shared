@@ -1,5 +1,5 @@
 {
-  "name": "@strider/utils-ts",
+  "name": "@qdev/utils-ts",
   "version": "0.0.1",
   "scripts": {
     "test:typecheck": "tsc --noEmit --incremental false"
