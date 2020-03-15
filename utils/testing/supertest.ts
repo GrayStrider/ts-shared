@@ -14,4 +14,7 @@ function supertest(app: any, gqlEndpoint: string) {
 	return { request, post }
 }
 
-export { supertest, SuperTest, Test }
+type Request = ReturnType<typeof supertest>['request']
+type Post = ReturnType<typeof supertest>['post']
+
+export { supertest, SuperTest, Test, Post, Request }
