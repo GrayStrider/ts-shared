@@ -2,7 +2,10 @@
   "name": "@qdev/utils-ts",
   "version": "0.0.1",
   "scripts": {
-    "test:typecheck": "tsc --noEmit --incremental false"
+    "test:typecheck": "tsc --noEmit --incremental false",
+    "npm:publish": "npm publish",
+    "npm:minor": "npm version minor",
+    "npm:patch": "npm version patch"
   },
   "dependencies": {
     "cross-env": "^6.0.3",
