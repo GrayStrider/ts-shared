@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cross-env": "^6.0.3",
+    "dotenv": "8.2.0",
     "reflect-metadata": "^0.1.13",
 
     "axios": "^0.19.1",
