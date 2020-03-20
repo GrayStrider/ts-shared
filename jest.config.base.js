@@ -25,6 +25,7 @@ module.exports = ({compilerOptions: {paths}}, {name}) => ({
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 	setupFilesAfterEnv: [
 		'jest-expect-message',
+		'jest-extended',
 		'@qdev/utils-ts/utils/testing/customMatchers.ts',
 		'@qdev/utils-ts/utils/testing/jest.matchers.either.ts'
 	],
