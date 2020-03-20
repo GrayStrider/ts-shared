@@ -14,7 +14,6 @@
 
     "axios": "^0.19.1",
     "bluebird": "^3.7.2",
-    "xmlhttprequest-ts": "^1.0.1",
 
     "chalk": "^3.0.0",
     "signale": "^1.4.0",
@@ -27,13 +26,11 @@
     "class-transformer": "0.2.3",
 
     "xstate": "^4.8.0",
-    "@xstate/react": "^0.8.1",
     "immer": "^6.0.1",
     "monocle-ts": "^2.1.0",
     "immutable": "^4.0.0-rc.12",
 
     "fluture": "^12.2.0",
-    "fluture-sanctuary-types": "^5.0.0",
     "fp-ts-fluture": "^0.6.5",
 
     "lodash": "^4.17.15",
@@ -92,8 +89,6 @@
     "@typescript-eslint/parser": "^2.19.2",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
-
-    "codacy-coverage": "^3.4.0",
 
     "husky": "^4.2.3",
     "lint-staged": "^10.0.2",
