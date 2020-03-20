@@ -38,5 +38,6 @@ module.exports = ({compilerOptions: {paths}}, {name}) => ({
 		'src/.*/entity',
 		'src/graphql/generated'
 	],
-	coverageDirectory: '<rootDir>/test/coverage/'
+	coverageDirectory: '<rootDir>/test/coverage/',
+	snapshotResolver: '@qdev/utils-ts/utils/testing/snapshotResolver.js'
 })
