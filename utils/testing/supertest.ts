@@ -1,10 +1,9 @@
 import st, { SuperTest, Test } from 'supertest'
-// import Application from 'koa'
 import { ASTNode, print } from 'graphql'
 import { flattenGQLResponse } from '../..'
 
-function supertest(app: any, gqlEndpoint: string) {
-	const request = st(app.callback())
+function supertest(app: any, gqlEndpoint = '/graphql') {
+	const request = st(app)
 	const post = async <T>(query: ASTNode) =>
 		request
 			.post(gqlEndpoint)
