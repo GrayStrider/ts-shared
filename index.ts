@@ -6,6 +6,7 @@ import log from './utils/log'
 import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
+import spinner from './lib/spinner'
 
 sig.config({
 	displayScope: true,
@@ -39,5 +40,6 @@ export {
 	warn,
 	consoleWrite,
 	chance,
-	isSE
+	isSE,
+	spinner
 }
