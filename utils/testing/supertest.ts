@@ -4,10 +4,13 @@ import { flattenGQLResponse } from '../..'
 
 function supertest (app: any, gqlEndpoint = '/graphql') {
 	const req = st (app)
-	const post = async <T = object> (query: ASTNode) =>
-		req
+	const post = async <T = object, V = object>
+	(query: ASTNode, variables?: V) => req
 			.post (gqlEndpoint)
-			.send ({ query: print (query) })
+			.send ({
+				query: print (query),
+				variables
+			})
 			.then (res => flattenGQLResponse<T> (res.body))
 	
 	return { req, post }
