@@ -1,6 +1,12 @@
 import { keys, head, values } from 'ramda'
-import { GraphQLResponse } from 'graphql-request/dist/src/types'
+import { GraphQLError } from 'graphql'
+import { isNonEmpty } from 'fp-ts/lib/Array'
+import { sig } from '..'
 
+type GQLResponse<T = any> = {
+	data: T,
+	errors: GraphQLError[]
+}
 /**
  * Refactored to be only used in GraphQL responses
  *
@@ -12,21 +18,26 @@ import { GraphQLResponse } from 'graphql-request/dist/src/types'
  * Too much trouble handling these edge cases
  * @param response
  */
-export default function flattenGQLResponse<T extends unknown>(
-	response: GraphQLResponse
-): T {
-	if (response.errors && response.errors.length > 0)
-		throw new Error(response.errors[0].message)
-
-	const { data } = response
-
-	if (!data) return response as T
-	if (keys(data).length > 1) return data as T
-
+export default function flattenGQLResponse<T = object> (
+	response: GQLResponse<T>
+): GQLResponse<T> {
+	
+	const { data, errors } = response
+	if (errors && isNonEmpty (errors)) {
+		console.log(errors)
+		return response
+	}
+	if (keys (data).length > 1)
+		return response
+	
 	/**
 	 * Return the first (head)
 	 * value (values) of the response
 	 * same as Object.values(response)[0]
 	 */
-	return head(values(data)) as T
+	return {
+		// @ts-ignore
+		data: head (values (data)) as unknown as T,
+		errors: []
+	}
 }
