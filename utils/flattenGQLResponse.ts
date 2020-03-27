@@ -20,24 +20,23 @@ type GQLResponse<T = any> = {
  */
 export default function flattenGQLResponse<T = object> (
 	response: GQLResponse<T>
-): GQLResponse<T> {
+): [T, GraphQLError[]] {
 	
 	const { data, errors } = response
 	if (errors && isNonEmpty (errors)) {
 		console.log(errors)
-		return response
+		return [data, errors]
 	}
 	if (keys (data).length > 1)
-		return response
+		return [data, errors]
 	
 	/**
 	 * Return the first (head)
 	 * value (values) of the response
 	 * same as Object.values(response)[0]
 	 */
-	return {
+	return [
 		// @ts-ignore
-		data: head (values (data)) as unknown as T,
-		errors: []
-	}
+		head (values (data)), []
+	]
 }
