@@ -30,6 +30,9 @@ function isSE (act?: unknown, exp?: unknown) {
 	(act).toStrictEqual (exp)
 }
 
+type Decorator = (target: object, propertyKey: string) => void
+const composeFieldDecorators = (...decorators: Decorator[]): Decorator => (target, propertyKey) =>
+	decorators.forEach (decorator => decorator (target, propertyKey))
 
 export * from './utils/testing/supertest'
 export {
@@ -41,5 +44,6 @@ export {
 	consoleWrite,
 	chance,
 	isSE,
-	spinner
+	spinner,
+	composeFieldDecorators
 }
