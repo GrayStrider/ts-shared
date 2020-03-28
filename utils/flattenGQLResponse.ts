@@ -24,7 +24,7 @@ export default function flattenGQLResponse<T = object> (
 	
 	const { data, errors } = response
 	if (errors && isNonEmpty (errors)) {
-		console.log(errors)
+		console.log(JSON.stringify(errors, null, 2))
 		return [data, errors]
 	}
 	if (keys (data).length > 1)
