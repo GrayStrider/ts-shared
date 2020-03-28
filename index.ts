@@ -8,7 +8,7 @@ import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 import spinner from './lib/spinner'
 
-sig.config({
+sig.config ({
 	displayScope: true,
 	displayBadge: false,
 	displayDate: false,
@@ -19,10 +19,10 @@ sig.config({
 	underlineMessage: false,
 	underlinePrefix: false,
 	underlineSuffix: false,
-	uppercaseLabel: false,
+	uppercaseLabel: false
 })
 
-const chance = new Chance()
+const chance = new Chance ()
 
 // isStrictEqual
 function isSE (act?: unknown, exp?: unknown) {
@@ -30,9 +30,13 @@ function isSE (act?: unknown, exp?: unknown) {
 	(act).toStrictEqual (exp)
 }
 
-type Decorator = (target: object, propertyKey: string) => void
-const composeFieldDecorators = (...decorators: Decorator[]): Decorator => (target, propertyKey) =>
+type FieldDecorator = (target: object, propertyKey: string) => void
+const composeFieldDecorators = (...decorators: FieldDecorator[]): FieldDecorator => (target, propertyKey) =>
 	decorators.forEach (decorator => decorator (target, propertyKey))
+
+const composeClassDecorators = (...decorators: ClassDecorator[]): ClassDecorator => target => {
+	decorators.forEach (decorator => decorator (target))
+}
 
 export * from './utils/testing/supertest'
 export {
@@ -45,5 +49,6 @@ export {
 	chance,
 	isSE,
 	spinner,
-	composeFieldDecorators
+	composeFieldDecorators,
+	composeClassDecorators
 }
