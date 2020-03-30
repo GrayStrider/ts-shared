@@ -30,6 +30,11 @@ function isSE (act?: unknown, exp?: unknown) {
 	(act).toStrictEqual (exp)
 }
 
+function getOrThrow <T> (nullable: T | undefined, error: Error ): T {
+	if (!nullable) throw error
+	return nullable
+}
+
 type FieldDecorator = (target: object, propertyKey: string) => void
 const composeFieldDecorators = (...decorators: FieldDecorator[]): FieldDecorator => (target, propertyKey) =>
 	decorators.forEach (decorator => decorator (target, propertyKey))
@@ -50,5 +55,6 @@ export {
 	isSE,
 	spinner,
 	composeFieldDecorators,
-	composeClassDecorators
+	composeClassDecorators,
+	getOrThrow
 }
