@@ -7,6 +7,7 @@ import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 import spinner from './lib/spinner'
+import { isNil } from 'ramda'
 
 sig.config ({
 	displayScope: true,
@@ -34,7 +35,7 @@ function isSE (act?: unknown, exp?: unknown) {
  * returns or throws provided default value / Error
  */
 function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
-	if (!nullable) {
+	if (nullable === undefined || nullable === null) {
 		if (orElse instanceof Error) {
 			throw orElse
 		}
