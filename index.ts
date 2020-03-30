@@ -30,6 +30,10 @@ function isSE (act?: unknown, exp?: unknown) {
 	(act).toStrictEqual (exp)
 }
 
+/**
+ * @param nullable if undefined, returns or throws provided default value / Error
+ 
+ */
 function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
 	if (!nullable) {
 		if (orElse instanceof Error) {
