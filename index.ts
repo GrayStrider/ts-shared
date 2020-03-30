@@ -31,8 +31,7 @@ function isSE (act?: unknown, exp?: unknown) {
 }
 
 /**
- * @param nullable if undefined, returns or throws provided default value / Error
- 
+ * returns or throws provided default value / Error
  */
 function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
 	if (!nullable) {
