@@ -30,8 +30,13 @@ function isSE (act?: unknown, exp?: unknown) {
 	(act).toStrictEqual (exp)
 }
 
-function getOrThrow <T> (nullable: T | undefined, error: Error ): T {
-	if (!nullable) throw error
+function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
+	if (!nullable) {
+		if (orElse instanceof Error) {
+			throw orElse
+		}
+		return orElse
+	}
 	return nullable
 }
 
@@ -56,5 +61,5 @@ export {
 	spinner,
 	composeFieldDecorators,
 	composeClassDecorators,
-	getOrThrow
+	toDefault
 }
