@@ -48,7 +48,7 @@ function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
 	return nullable as T
 }
 
-type FieldDecorator = (target: object, propertyKey: string) => void
+export type FieldDecorator = (target: object, propertyKey: string) => void
 const composeFieldDecorators = (...decorators: FieldDecorator[]): FieldDecorator => (target, propertyKey) =>
 	decorators.forEach (decorator => decorator (target, propertyKey))
 
