@@ -34,6 +34,7 @@ function isSE (act?: unknown, exp?: unknown) {
 
 /**
  * returns or throws provided default value / Error
+ * 0 considered a truthy value to prevent bugs
  */
 
 function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
