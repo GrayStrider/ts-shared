@@ -7,7 +7,8 @@ import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 import spinner from './lib/spinner'
-import { isNil } from 'ramda'
+import { isEmpty } from 'ramda'
+import { badEnumValueMessage } from 'graphql/validation/rules/ValuesOfCorrectType'
 
 sig.config ({
 	displayScope: true,
@@ -34,14 +35,16 @@ function isSE (act?: unknown, exp?: unknown) {
 /**
  * returns or throws provided default value / Error
  */
+
 function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
-	if (nullable === undefined || nullable === null) {
+	// @ts-ignore
+	if (!nullable && nullable !== 0) {
 		if (orElse instanceof Error) {
 			throw orElse
 		}
 		return orElse
 	}
-	return nullable
+	return nullable as T
 }
 
 type FieldDecorator = (target: object, propertyKey: string) => void
