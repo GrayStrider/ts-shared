@@ -2,7 +2,10 @@ import st, { SuperTest, Test } from 'supertest'
 import { ASTNode, print } from 'graphql'
 import { flattenGQLResponse } from '../..'
 
-function supertest (app: any, gqlEndpoint = '/graphql') {
+function supertest (
+	app: any,
+	gqlEndpoint = '/graphql'
+) {
 	const req = st (app)
 	const post = async <T = object, V = object>
 	(query: ASTNode, variables?: V) => req

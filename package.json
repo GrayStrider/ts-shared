@@ -60,7 +60,8 @@
 
     "graphql": "14.6.0",
     "graphql-tag": "2.10.3",
-    "graphql-request": "1.8.2"
+    "graphql-request": "1.8.2",
+    "type-graphql": "0.17.6"
   },
   "devDependencies": {
     "@types/bluebird": "3.5.29",
