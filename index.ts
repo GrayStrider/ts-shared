@@ -37,15 +37,15 @@ function isSE (act?: unknown, exp?: unknown) {
  * 0 considered a truthy value to prevent bugs
  */
 
-function toDefault<T> (nullable: T | undefined, orElse: Error | T): T {
+function toDefault<T> (maybeFalsy: T | undefined, orElse: Error | T): T {
 	// @ts-ignore
-	if (!nullable && nullable !== 0) {
+	if (!maybeFalsy && maybeFalsy !== 0) {
 		if (orElse instanceof Error) {
 			throw orElse
 		}
 		return orElse
 	}
-	return nullable as T
+	return maybeFalsy as T
 }
 
 export type FieldDecorator = (target: object, propertyKey: string) => void
