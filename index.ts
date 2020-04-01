@@ -7,8 +7,9 @@ import flattenGQLResponse from './utils/flattenGQLResponse'
 import warn from './utils/warn'
 import consoleWrite from './utils/consoleWrite'
 import spinner from './lib/spinner'
-import { isEmpty } from 'ramda'
-import { badEnumValueMessage } from 'graphql/validation/rules/ValuesOfCorrectType'
+import { head } from 'ramda'
+import { GraphQLError } from 'graphql'
+import { ErrorCodes } from '@strider/nest-gql-playground/src/common/errors'
 
 sig.config ({
 	displayScope: true,
@@ -56,7 +57,16 @@ const composeFieldDecorators = (...decorators: FieldDecorator[]): FieldDecorator
 const composeClassDecorators = (...decorators: ClassDecorator[]): ClassDecorator => target => {
 	decorators.forEach (decorator => decorator (target))
 }
-
+export const shouldHaveFailedValidation = ([data, errors]: [any, GraphQLError[]], amount = 1) => {
+	isSE (data, null)
+	isSE (head (errors)?.extensions?.code, ErrorCodes.VALIDATION_ERROR)
+	if (amount)
+		isSE (head (errors)
+			?.extensions?.validationErrors.length, amount)
+}
+export const shouldHaveErrorCode = (errors: GraphQLError[], code: ErrorCodes) => {
+	isSE (head (errors)?.extensions?.code, code)
+}
 export * from './utils/testing/supertest'
 export {
 	sig,
