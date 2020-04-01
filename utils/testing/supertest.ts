@@ -6,9 +6,16 @@ function supertest (
 	app: any,
 	gqlEndpoint = '/graphql'
 ) {
-	const req = st (app)
+	const base = st (app)
+	const req = async <T = object, V = object>
+	(query: ASTNode, variables?: V) => base
+		.post (gqlEndpoint)
+		.send ({
+			query: print (query),
+			variables
+		})
 	const post = async <T = object, V = object>
-	(query: ASTNode, variables?: V) => req
+	(query: ASTNode, variables?: V) => base
 			.post (gqlEndpoint)
 			.send ({
 				query: print (query),
