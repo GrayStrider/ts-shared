@@ -1,9 +1,11 @@
 import st, { SuperTest, Test } from 'supertest'
 import { ASTNode, print } from 'graphql'
 import { flattenGQLResponse } from '../..'
+import http from 'http'
 
 function supertest (
-	app: any,
+	app: http.Server,
+	cookie?: string[],
 	gqlEndpoint = '/graphql'
 ) {
 	const base = st (app)
