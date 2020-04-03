@@ -5,7 +5,6 @@ import http from 'http'
 
 function supertest (
 	app: http.Server,
-	cookie?: string[],
 	gqlEndpoint = '/graphql'
 ) {
 	const base = st (app)
